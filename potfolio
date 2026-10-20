@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Joseph Githeci | Photography & Visual Content Portfolio</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-zinc-950 text-zinc-100 antialiased selection:bg-zinc-200 selection:text-zinc-900">
+
+    <!-- Header & Navigation -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-zinc-950/80 backdrop-blur-md border-b border-zinc-900">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="#home" class="text-lg font-semibold tracking-wider text-zinc-100 uppercase">Joseph Githeci</a>
+            <nav class="hidden md:flex items-center space-x-8 text-sm font-medium text-zinc-400">
+                <a href="#portfolio" class="hover:text-zinc-100 transition-colors">Portfolio</a>
+                <a href="#about" class="hover:text-zinc-100 transition-colors">About</a>
+                <a href="#skills" class="hover:text-zinc-100 transition-colors">Skills</a>
+                <a href="#contact" class="hover:text-zinc-100 transition-colors">Contact</a>
+            </nav>
+            <button id="mobile-menu-btn" class="md:hidden text-zinc-400 hover:text-zinc-100 focus:outline-none">
+                <i class="fa-solid fa-bars text-xl"></i>
+            </button>
+        </div>
+        <!-- Mobile Nav Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-zinc-900 border-b border-zinc-800 px-6 py-4 space-y-3">
+            <a href="#portfolio" class="block text-zinc-300 hover:text-zinc-100">Portfolio</a>
+            <a href="#about" class="block text-zinc-300 hover:text-zinc-100">About</a>
+            <a href="#skills" class="block text-zinc-300 hover:text-zinc-100">Skills</a>
+            <a href="#contact" class="block text-zinc-300 hover:text-zinc-100">Contact</a>
+        </div>
+    </header>
+
+    <!-- 1. Home Section -->
+    <section id="home" class="relative h-screen flex items-center justify-center text-center px-6 overflow-hidden">
+        <!-- Background Hero Image with Dark Overlay -->
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?auto=format&fit=crop&q=80&w=2000" alt="Hero Photography" class="w-full h-full object-cover object-center opacity-40 scale-105 transition-transform duration-1000">
+            <div class="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/50 to-zinc-950/30"></div>
+        </div>
+        
+        <div class="relative z-10 max-w-3xl mx-auto space-y-6 mt-12">
+            <p class="text-xs uppercase tracking-widest text-zinc-400 font-medium">Visual Content Specialist • Kenya</p>
+            <h1 class="text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-white">
+                Capturing Moments. Telling Stories.
+            </h1>
+            <p class="text-lg text-zinc-400 max-w-xl mx-auto font-light">
+                Professional photography and precision visual content evaluation focused on composition, light, and narrative depth.
+            </p>
+            <div class="pt-4">
+                <a href="#portfolio" class="inline-flex items-center justify-center px-8 py-4 bg-zinc-100 text-zinc-950 text-sm font-semibold tracking-wide uppercase hover:bg-white transition-all shadow-lg hover:shadow-zinc-800/50">
+                    View My Portfolio
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. Photography Portfolio -->
+    <section id="portfolio" class="py-28 px-6 max-w-7xl mx-auto">
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 border-b border-zinc-900 pb-6">
+            <div>
+                <p class="text-xs uppercase tracking-widest text-zinc-500 mb-2">Selected Works</p>
+                <h2 class="text-3xl font-bold tracking-tight text-white">Visual Gallery</h2>
+            </div>
+            <!-- Category Filter Buttons -->
+            <div class="flex flex-wrap gap-2 mt-6 md:mt-0 text-xs font-medium">
+                <button onclick="filterGallery('all')" class="gallery-filter-btn px-4 py-2 bg-zinc-100 text-zinc-950 transition-colors">All</button>
+                <button onclick="filterGallery('portraits')" class="gallery-filter-btn px-4 py-2 bg-zinc-900 text-zinc-400 hover:text-white transition-colors">Portraits</button>
+                <button onclick="filterGallery('landscapes')" class="gallery-filter-btn px-4 py-2 bg-zinc-900 text-zinc-400 hover:text-white transition-colors">Landscapes</button>
+                <button onclick="filterGallery('street')" class="gallery-filter-btn px-4 py-2 bg-zinc-900 text-zinc-400 hover:text-white transition-colors">Street</button>
+                <button onclick="filterGallery('events')" class="gallery-filter-btn px-4 py-2 bg-zinc-900 text-zinc-400 hover:text-white transition-colors">Events</button>
+                <button onclick="filterGallery('commercial')" class="gallery-filter-btn px-4 py-2 bg-zinc-900 text-zinc-400 hover:text-white transition-colors">Commercial</button>
+            </div>
+        </div>
+
+        <!-- Gallery Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            
+            <!-- Item 1: Portraits -->
+            <div class="gallery-item group relative bg-zinc-900 overflow-hidden aspect-[4/5] cursor-pointer" data-category="portraits" onclick="openLightbox(this)">
+                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=1000" alt="Portrait Photography" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+                <div class="absolute inset-0 bg-gradient-to-t from-zinc-950/90 via-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                    <span class="text-xs uppercase tracking-widest text-zinc-400 font-medium">Portraits</span>
+                    <h3 class="text-lg font-semibold text-white">Studio Portrait Series</h3>
+                </div>
+            </div>
+
+            <!-- Item 2: Landscapes -->
+            <div class="gallery-item group relative bg-zinc-900 overflow-hidden aspect-[4/5] cursor-pointer" data-category="landscapes" onclick="openLightbox(this)">
+                <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&q=80&w=1000" alt="Landscape Photography" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+                <div class="absolute inset-0 bg-gradient-to-t from-zinc-950/90 via-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                    <span class="text-xs uppercase tracking-widest text-zinc-400 font-medium">Landscapes</span>
+                    <h3 class="text-lg font-semibold text-white">East African Horizons</h3>
+                </div>
+            </div>
+
+            <!-- Item 3: Street -->
+            <div class="gallery-item group relative bg-zinc-900 overflow-hidden aspect-[4/5] cursor-pointer" data-category="street" onclick="openLightbox(this)">
+                <img src="https://images.unsplash.com/photo-1514565131-fce0801e5785?auto=format&fit=crop&q=80&w=1000" alt="Street Photography" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+                <div class="absolute inset-0 bg-gradient-to-t from-zinc-950/90 via-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                    <span class="text-xs uppercase tracking-widest text-zinc-400 font-medium">Street Photography</span>
+                    <h3 class="text-lg font-semibold text-white">Urban Rhythms</h3>
+                </div>
+            </div>
+
+            <!-- Item 4: Events -->
+            <div class="gallery-item group relative bg-zinc-900 overflow-hidden aspect-[4/5] cursor-pointer" data-category="events" onclick="openLightbox(this)">
+                <img src="https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&q=80&w=1000" alt="Event Photography" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+                <div class="absolute inset-0 bg-gradient-to-t from-zinc-950/90 via-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                    <span class="text-xs uppercase tracking-widest text-zinc-400 font-medium">Events</span>
+                    <h3 class="text-lg font-semibold text-white">Live Cultural Showcase</h3>
+                </div>
+            </div>
+
+            <!-- Item 5: Commercial -->
+            <div class="gallery-item group relative bg-zinc-900 overflow-hidden aspect-[4/5] cursor-pointer" data-category="commercial" onclick="openLightbox(this)">
+                <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&q=80&w=1000" alt="Commercial Photography" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+                <div class="absolute inset-0 bg-gradient-to-t from-zinc-950/90 via-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                    <span class="text-xs uppercase tracking-widest text-zinc-400 font-medium">Commercial</span>
+                    <h3 class="text-lg font-semibold text-white">Product & Brand Minimalism</h3>
+                </div>
+            </div>
+
+            <!-- Item 6: Portraits -->
+            <div class="gallery-item group relative bg-zinc-900 overflow-hidden aspect-[4/5] cursor-pointer" data-category="portraits" onclick="openLightbox(this)">
+                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=1000" alt="Editorial Portrait" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+                <div class="absolute inset-0 bg-gradient-to-t from-zinc-950/90 via-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                    <span class="text-xs uppercase tracking-widest text-zinc-400 font-medium">Portraits</span>
+                    <h3 class="text-lg font-semibold text-white">Editorial Character Study</h3>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Lightbox Modal -->
+    <div id="lightbox" class="fixed inset-0 z-50 bg-zinc-950/95 hidden flex items-center justify-center p-4">
+        <button onclick="closeLightbox()" class="absolute top-6 right-6 text-zinc-400 hover:text-white text-3xl focus:outline-none">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+        <div class="max-w-4xl max-h-[85vh] flex flex-col items-center">
+            <img id="lightbox-img" src="" alt="Full size preview" class="max-h-[75vh] max-w-full object-contain border border-zinc-900">
+            <p id="lightbox-caption" class="mt-4 text-sm text-zinc-400 tracking-wide"></p>
+        </div>
+    </div>
+
+    <!-- 3. About Me Section -->
+    <section id="about" class="py-28 px-6 bg-zinc-900/50 border-y border-zinc-900">
+        <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-12 items-center">
+            <div class="md:col-span-5">
+                <div class="aspect-[3/4] bg-zinc-900 overflow-hidden border border-zinc-800">
+                    <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=800" alt="Joseph Githeci" class="w-full h-full object-cover grayscale contrast-125">
+                </div>
+            </div>
+            <div class="md:col-span-7 space-y-6">
+                <div>
+                    <p class="text-xs uppercase tracking-widest text-zinc-500 mb-2">Background & Philosophy</p>
+                    <h2 class="text-3xl font-bold tracking-tight text-white">About Me</h2>
+                </div>
+                <p class="text-zinc-300 leading-relaxed font-light">
+                    I am Joseph Githeci, a photographer and visual content specialist based in Kenya. My practice is rooted in a disciplined approach to photography, visual storytelling, and precise compositional frameworks.
+                </p>
+                <p class="text-zinc-400 leading-relaxed font-light text-sm">
+                    With an acute attention to detail and extensive background in visual quality evaluation and content annotation, I approach every frame with analytical precision and creative intent—balancing clean lighting, structural balance, and authentic emotion.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. Skills Section -->
+    <section id="skills" class="py-28 px-6 max-w-6xl mx-auto">
+        <div class="text-center max-w-2xl mx-auto mb-16">
+            <p class="text-xs uppercase tracking-widest text-zinc-500 mb-2">Core Competencies</p>
+            <h2 class="text-3xl font-bold tracking-tight text-white">Professional Skills</h2>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            
+            <div class="p-8 bg-zinc-900 border border-zinc-800/80 space-y-3">
+                <i class="fa-solid fa-camera text-xl text-zinc-300 mb-2"></i>
+                <h3 class="font-semibold text-white tracking-wide">Photography</h3>
+                <p class="text-xs text-zinc-400 leading-relaxed">Capturing high-grade visual assets across portrait, commercial, landscape, and event genres.</p>
+            </div>
+
+            <div class="p-8 bg-zinc-900 border border-zinc-800/80 space-y-3">
+                <i class="fa-solid fa-sun text-xl text-zinc-300 mb-2"></i>
+                <h3 class="font-semibold text-white tracking-wide">Lighting</h3>
+                <p class="text-xs text-zinc-400 leading-relaxed">Expert manipulation of natural and artificial lighting to sculpt dimension and mood.</p>
+            </div>
+
+            <div class="p-8 bg-zinc-900 border border-zinc-800/80 space-y-3">
+                <i class="fa-solid fa-crop text-xl text-zinc-300 mb-2"></i>
+                <h3 class="font-semibold text-white tracking-wide">Composition</h3>
+                <p class="text-xs text-zinc-400 leading-relaxed">Strict adherence to structural framing, geometry, leading lines, and visual weight.</p>
+            </div>
+
+            <div class="p-8 bg-zinc-900 border border-zinc-800/80 space-y-3">
+                <i class="fa-solid fa-sliders text-xl text-zinc-300 mb-2"></i>
+                <h3 class="font-semibold text-white tracking-wide">Image Editing</h3>
+                <p class="text-xs text-zinc-400 leading-relaxed">Professional retouching, color grading, and asset optimization for digital formats.</p>
+            </div>
+
+            <div class="p-8 bg-zinc-900 border border-zinc-800/80 space-y-3">
+                <i class="fa-solid fa-eye text-xl text-zinc-300 mb-2"></i>
+                <h3 class="font-semibold text-white tracking-wide">Visual Content Evaluation</h3>
+                <p class="text-xs text-zinc-400 leading-relaxed">Systematic inspection and rubric-based assessment of visual media quality.</p>
+            </div>
+
+            <div class="p-8 bg-zinc-900 border border-zinc-800/80 space-y-3">
+                <i class="fa-solid fa-tag text-xl text-zinc-300 mb-2"></i>
+                <h3 class="font-semibold text-white tracking-wide">Image Annotation</h3>
+                <p class="text-xs text-zinc-400 leading-relaxed">Precise labeling, categorization, and metadata documentation for datasets.</p>
+            </div>
+
+            <div class="p-8 bg-zinc-900 border border-zinc-800/80 space-y-3 sm:col-span-2 lg:col-span-2">
+                <i class="fa-solid fa-circle-check text-xl text-zinc-300 mb-2"></i>
+                <h3 class="font-semibold text-white tracking-wide">Quality Control</h3>
+                <p class="text-xs text-zinc-400 leading-relaxed">Rigorous standards compliance ensuring technical excellence, accuracy, and professional presentation across all deliverables.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 5. Contact Section -->
+    <section id="contact" class="py-28 px-6 bg-zinc-900/50 border-t border-zinc-900">
+        <div class="max-w-3xl mx-auto text-center space-y-8">
+            <div>
+                <p class="text-xs uppercase tracking-widest text-zinc-500 mb-2">Get In Touch</p>
+                <h2 class="text-3xl font-bold tracking-tight text-white">Let's Work Together</h2>
+                <p class="text-zinc-400 text-sm mt-2">Available for freelance assignments, commissions, and professional collaborations.</p>
+            </div>
+
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-6 pt-4">
+                <a href="mailto:josephgitheci74@gmail.com" class="flex items-center space-x-3 px-6 py-4 bg-zinc-900 border border-zinc-800 text-zinc-300 hover:text-white hover:border-zinc-700 transition-all text-sm w-full sm:w-auto justify-center">
+                    <i class="fa-solid fa-envelope text-zinc-400"></i>
+                    <span>josephgitheci74@gmail.com</span>
+                </a>
+                <a href="tel:+254741018675" class="flex items-center space-x-3 px-6 py-4 bg-zinc-900 border border-zinc-800 text-zinc-300 hover:text-white hover:border-zinc-700 transition-all text-sm w-full sm:w-auto justify-center">
+                    <i class="fa-solid fa-phone text-zinc-400"></i>
+                    <span>+254 741 018 675</span>
+                </a>
+            </div>
+
+            <div class="text-xs text-zinc-500 pt-2 flex items-center justify-center space-x-2">
+                <i class="fa-solid fa-location-dot"></i>
+                <span>Based in Nairobi, Kenya • Available Remotely & Worldwide</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 px-6 border-t border-zinc-900 text-center text-xs text-zinc-600">
+        <p>&copy; 2026 Joseph Githeci. All rights reserved.</p>
+    </footer>
+
+    <!-- Interactive JavaScript -->
+    <script>
+        // Mobile Menu Toggle
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Gallery Filtering
+        function filterGallery(category) {
+            const items = document.querySelectorAll('.gallery-item');
+            const buttons = document.querySelectorAll('.gallery-filter-btn');
+
+            buttons.forEach(btn => {
+                btn.classList.remove('bg-zinc-100', 'text-zinc-950');
+                btn.classList.add('bg-zinc-900', 'text-zinc-400');
+            });
+            event.target.classList.remove('bg-zinc-900', 'text-zinc-400');
+            event.target.classList.add('bg-zinc-100', 'text-zinc-950');
+
+            items.forEach(item => {
+                if (category === 'all' || item.dataset.category === category) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+
+        // Lightbox Functions
+        function openLightbox(element) {
+            const img = element.querySelector('img');
+            const title = element.querySelector('h3').innerText;
+            const category = element.querySelector('span').innerText;
+            
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightbox-img');
+            const lightboxCaption = document.getElementById('lightbox-caption');
+
+            lightboxImg.src = img.src;
+            lightboxCaption.innerText = `${category} — ${title}`;
+            lightbox.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            const lightbox = document.getElementById('lightbox');
+            lightbox.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close lightbox on background click
+        document.getElementById('lightbox').addEventListener('click', (e) => {
+            if (e.target.id === 'lightbox') {
+                closeLightbox();
+            }
+        });
+    </script>
+</body>
+</html>
